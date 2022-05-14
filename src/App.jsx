@@ -27,14 +27,16 @@ function App() {
           <h1>To-Do List</h1>
         </div>
         <div className="body">
-          <input
-            type="text"
-            name="text"
-            id="text"
-            onChange={handleTextChange}
-            value={inputText}
-          />
-          <button onClick={addItem}>Add</button>
+          <div className="text_input">
+            <input
+              type="text"
+              name="text"
+              id="text"
+              onChange={handleTextChange}
+              value={inputText}
+            />
+            <button onClick={addItem}>Add</button>
+          </div>
           <div className="itemsList">
             <ul>{items.map(renderItem)}</ul>
           </div>
