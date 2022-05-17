@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Item(props) {
+export default function Note(props) {
   const [done, setDone] = useState(false);
 
   function handleClick() {

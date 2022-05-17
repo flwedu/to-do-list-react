@@ -1,23 +1,23 @@
 import { useState } from "react";
-import Item from "./components/Item";
+import Note from "./components/Note";
 
 function App() {
   const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   function handleTextChange(event) {
     const value = event.target.value;
     setInputText(value);
   }
 
-  function addItem(event) {
+  function addNote(event) {
     event.preventDefault();
-    setItems([...items, inputText]);
+    setNotes([...notes, inputText]);
     setInputText("");
   }
 
-  function renderItem(text) {
-    return <Item text={text} />;
+  function renderNote(text) {
+    return <Note text={text} />;
   }
 
   return (
@@ -35,10 +35,10 @@ function App() {
               onChange={handleTextChange}
               value={inputText}
             />
-            <button onClick={addItem}>Add</button>
+            <button onClick={addNote}>Add</button>
           </div>
-          <div className="itemsList">
-            <ul>{items.map(renderItem)}</ul>
+          <div className="NotesList">
+            <ul>{notes.map(renderNote)}</ul>
           </div>
         </div>
       </div>
