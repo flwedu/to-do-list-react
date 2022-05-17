@@ -1,23 +1,20 @@
-import { useState } from "react";
-import Note from "./components/Note";
+import React, { useState } from "react"
+import InputField from "./components/InputField"
+import NotesList from "./components/NotesList"
+import NoteObject from "./model/NoteObject"
 
 function App() {
-  const [inputText, setInputText] = useState("");
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([])
 
-  function handleTextChange(event) {
-    const value = event.target.value;
-    setInputText(value);
+  function addNoteCallback(text) {
+    const note = new NoteObject(text)
+    setNotes([...notes, note])
   }
 
-  function addNote(event) {
-    event.preventDefault();
-    setNotes([...notes, inputText]);
-    setInputText("");
-  }
-
-  function renderNote(text) {
-    return <Note text={text} />;
+  function doneCallback(id) {
+    const note = notes.find((el) => el.id === id)
+    note.done = !note.done
+    setNotes(notes)
   }
 
   return (
@@ -27,23 +24,12 @@ function App() {
           <h1>To-Do List</h1>
         </div>
         <div className="body">
-          <div className="text_input">
-            <input
-              type="text"
-              name="text"
-              id="text"
-              onChange={handleTextChange}
-              value={inputText}
-            />
-            <button onClick={addNote}>Add</button>
-          </div>
-          <div className="NotesList">
-            <ul>{notes.map(renderNote)}</ul>
-          </div>
+          <InputField addNoteCallback={addNoteCallback} />
+          <NotesList notes={notes} doneCallback={doneCallback} />
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
