@@ -1,20 +1,37 @@
-import React, { useState } from "react"
+// @ts-nocheck
+import React, { useEffect, useState } from "react"
 import InputField from "./components/InputField"
 import NotesList from "./components/NotesList"
-import NoteObject from "./model/NoteObject"
+import NoteObject from "./model/NoteObject.js"
+import LocalStorageService from "./service/local-storage.js"
 
 function App() {
-  const [notes, setNotes] = useState([])
+  const storage = new LocalStorageService("notes")
 
+  const [notes, setNotes] = useState(storage.load())
+
+  useEffect(() => {
+    storage.save(notes)
+  }, [notes])
+
+  /**
+   * @param {string} text
+   */
   function addNoteCallback(text) {
     const note = new NoteObject(text)
     setNotes([...notes, note])
   }
 
+  /**
+   * @param {string} id
+   */
   function doneCallback(id) {
     const note = notes.find((el) => el.id === id)
-    note.done = !note.done
-    setNotes(notes)
+    if (note) {
+      note.done = !note.done
+      setNotes(notes)
+      storage.save(notes)
+    }
   }
 
   return (
