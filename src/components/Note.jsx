@@ -7,7 +7,7 @@ import NoteObject from "../model/NoteObject.js"
  * @returns
  */
 export function Note({ note, doneCallback }) {
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(note.done)
 
   function handleClick() {
     setDone(!done)
