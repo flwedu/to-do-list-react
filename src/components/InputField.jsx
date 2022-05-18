@@ -1,14 +1,25 @@
 import React, { useState } from "react"
 
+/**
+ *
+ * @param {{addNoteCallback: (text: string) => void}} param0
+ * @returns
+ */
 export default function InputField({ addNoteCallback }) {
   const [inputText, setInputText] = useState("")
 
+  /**
+   * @param {*} event
+   */
   function onSubmit(event) {
     event.preventDefault()
     addNoteCallback(inputText)
     setInputText("")
   }
 
+  /**
+   * @param {*} event
+   */
   function handleTextChange(event) {
     const value = event.target.value
     setInputText(value)
