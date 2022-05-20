@@ -1,11 +1,8 @@
 import React, { useState } from "react"
+import useNotesContext from "../hooks/context/use-notes-context"
 
-/**
- *
- * @param {{addNoteCallback: (text: string) => void}} param0
- * @returns
- */
-export default function InputField({ addNoteCallback }) {
+export default function InputField() {
+  const { addNoteWithText } = useNotesContext()
   const [inputText, setInputText] = useState("")
 
   /**
@@ -13,7 +10,7 @@ export default function InputField({ addNoteCallback }) {
    */
   function onSubmit(event) {
     event.preventDefault()
-    addNoteCallback(inputText)
+    addNoteWithText(inputText)
     setInputText("")
   }
 

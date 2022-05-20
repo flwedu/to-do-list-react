@@ -1,18 +1,16 @@
 import React from "react"
+import useNotesContext from "../hooks/context/use-notes-context"
 import NoteObject from "../model/NoteObject"
 import { Note } from "./Note"
 
-/**
- *
- * @param {{notes: NoteObject[], doneCallback: (id: string) => void}} param0
- * @returns
- */
-export default function NotesList({ notes, doneCallback }) {
+export default function NotesList() {
+  const { notes } = useNotesContext()
+
   /**
    * @param {NoteObject} note
    */
   function renderNote(note) {
-    return <Note key={note.id} note={note} doneCallback={doneCallback} />
+    return <Note key={note.id} note={note} />
   }
 
   return (

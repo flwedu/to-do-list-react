@@ -1,24 +1,29 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import useNotesContext from "../hooks/context/use-notes-context.jsx"
 import NoteObject from "../model/NoteObject.js"
 
 /**
  *
- * @param {{note: NoteObject; doneCallback: (id: string) => void}} param0
+ * @param {{note: NoteObject; }} param0
  * @returns
  */
-export function Note({ note, doneCallback }) {
+export function Note({ note }) {
+  const { switchNoteStatus } = useNotesContext()
   const [done, setDone] = useState(note.done)
+
+  useEffect(() => {
+    switchNoteStatus(note.id, done)
+  }, [done])
 
   function handleClick() {
     setDone(!done)
-    doneCallback(note.id)
   }
 
   function getTimeSinceCreation() {
     const now = new Date()
     const seconds = (now.getTime() - note.createdAt) / 1000
     if (seconds < 60) return `${Math.floor(seconds)} seconds`
-    if (seconds < 3600) return `${Math.floor(seconds / 60)} minuts`
+    if (seconds < 3600) return `${Math.floor(seconds / 60)} minutes`
     return `${Math.floor(seconds / 3600)} hours`
   }
 
