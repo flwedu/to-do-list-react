@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
+
 $main-bg-color: #ffe7d6;
-$app-bg-color: #f5f4f4;
+$app-bg-color: #ffffff;
+$input-color: #f2f2f2;
 $lines: #4794ff;
 $margin-line: #ff0000;
 $color--shadow: #1f1f1f;
@@ -7,12 +10,17 @@ $color--shadow: #1f1f1f;
 body {
   display: flex;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $main-bg-color;
+}
+
+h1 {
+  font-family: "Smooch", cursive;
+}
+
+span {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App {
@@ -20,7 +28,7 @@ body {
   border-radius: 0.5rem;
   background-color: $app-bg-color;
   width: 25rem;
-  height: 30rem;
+  height: 90vh;
 
   background-image: linear-gradient($lines 0.05em, transparent 0.05em);
   background-size: 100% 2em;
@@ -48,14 +56,18 @@ body {
 }
 
 .text_input {
-  padding: 0.2rem;
+  height: 2rem;
+  margin: 1rem 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   input {
     width: 80%;
-    height: 1.5rem;
+    border-color: transparent;
+    background-color: $input-color;
+    border-bottom: $color--shadow dotted 3px;
   }
 
   button {
@@ -64,11 +76,13 @@ body {
     color: $lines;
     border-radius: 2px;
     box-shadow: none;
+    background-color: $app-bg-color;
   }
 }
 
 ul {
   margin: 2rem 0;
+  padding: 0 0.5rem;
 }
 
 li {
@@ -92,9 +106,6 @@ li {
     color: $margin-line;
     font-size: x-large;
     font-weight: bold;
+    background: transparent;
   }
-}
-
-button {
-  background: transparent;
 }
