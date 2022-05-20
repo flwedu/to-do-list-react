@@ -1,10 +1,12 @@
-$main-bg-color: #b18dff;
-$body-bg-color: #ececec;
+$main-bg-color: #ffe7d6;
+$app-bg-color: #f5f4f4;
 $lines: #4794ff;
-$margin-line: #960000;
+$margin-line: #ff0000;
+$color--shadow: #1f1f1f;
 
 body {
-  margin: 0;
+  display: flex;
+  justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -13,16 +15,17 @@ body {
   background-color: $main-bg-color;
 }
 
-.body {
-  margin: 1em;
-  background-color: $body-bg-color;
-  width: 400px;
-  height: 450px;
+.App {
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  background-color: $app-bg-color;
+  width: 25rem;
+  height: 30rem;
 
   background-image: linear-gradient($lines 0.05em, transparent 0.05em);
   background-size: 100% 2em;
   position: relative;
-  box-shadow: 15px 15px 33px #1b1b1b1a;
+  box-shadow: 1rem 1rem 2rem $color--shadow;
 
   &:before,
   &:after {
@@ -35,18 +38,16 @@ body {
     height: 100%;
     width: 2px;
     background-color: $margin-line;
-    left: 2em;
+    left: 2rem;
     z-index: 2;
   }
 }
 
-.text_input {
-  position: relative;
-  top: 1em;
-  left: 3em;
+.container {
+  margin: 2rem;
 }
 
 li {
   list-style-type: none;
-  margin: 0.7em;
+  // margin: 1.1rem 0;
 }
