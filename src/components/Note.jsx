@@ -32,7 +32,7 @@ export function Note({ note }) {
     <li onClick={handleClick}>
       <div style={{ textDecoration: done ? "line-through" : "none" }}>
         <span>{note.text}</span>
-        <span> - ⏳ {getTimeSinceCreation()}</span>
+        <span> ⏳ {getTimeSinceCreation()}</span>
       </div>
       {done && <DeleteButton noteId={note.id} />}
     </li>
