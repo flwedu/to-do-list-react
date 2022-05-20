@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import useNotesContext from "../hooks/context/use-notes-context.jsx"
 import NoteObject from "../model/NoteObject.js"
+import DeleteButton from "./DeleteButton.jsx"
 
 /**
  *
@@ -28,12 +29,12 @@ export function Note({ note }) {
   }
 
   return (
-    <li
-      onClick={handleClick}
-      style={{ textDecoration: done ? "line-through" : "none" }}
-    >
-      <span>{note.text}</span>
-      <span> - ⏳ {getTimeSinceCreation()}</span>
+    <li onClick={handleClick}>
+      <div style={{ textDecoration: done ? "line-through" : "none" }}>
+        <span>{note.text}</span>
+        <span> - ⏳ {getTimeSinceCreation()}</span>
+      </div>
+      {done && <DeleteButton noteId={note.id} />}
     </li>
   )
 }
