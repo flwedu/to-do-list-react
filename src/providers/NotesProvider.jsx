@@ -24,13 +24,13 @@ export function NotesContextProvider({ children, storage }) {
 
   /**
    * @param {string} id
+   * @param {boolean} done
    */
-  function switchNoteStatus(id) {
+  function switchNoteStatus(id, done) {
     const note = notes.find((el) => el.id === id)
     if (note) {
-      note.done = !note.done
+      note.done = done
       setNotes(notes)
-      storage.save(notes)
     }
   }
 
