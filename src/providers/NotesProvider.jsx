@@ -27,11 +27,11 @@ function NotesContextProvider({ children, storage }) {
    * @param {boolean} done
    */
   function switchNoteStatus(id, done) {
-    const note = notes.find((el) => el.id === id)
-    if (note) {
-      note.done = done
-      setNotes(notes)
-    }
+    const updatedNotes = notes.map((el) => {
+      if (el.id === id) return { ...el, done }
+      return el
+    })
+    setNotes(updatedNotes)
   }
 
   /**
