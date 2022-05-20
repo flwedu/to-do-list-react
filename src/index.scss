@@ -1,9 +1,7 @@
-:root {
-  --main-bg-color: #b18dff;
-  --body-bg-color: #ececec;
-  --lines: #4794ff;
-  --margin-line: #960000;
-}
+$main-bg-color: #b18dff;
+$body-bg-color: #ececec;
+$lines: #4794ff;
+$margin-line: #960000;
 
 body {
   margin: 0;
@@ -12,33 +10,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--main-bg-color);
+  background-color: $main-bg-color;
 }
 
 .body {
   margin: 1em;
-  background-color: var(--body-bg-color);
+  background-color: $body-bg-color;
   width: 400px;
   height: 450px;
 
-  background-image: linear-gradient(var(--lines) 0.05em, transparent 0.05em);
+  background-image: linear-gradient($lines 0.05em, transparent 0.05em);
   background-size: 100% 2em;
   position: relative;
   box-shadow: 15px 15px 33px #1b1b1b1a;
-}
-.body:before,
-.body:after {
-  content: "";
-  position: absolute;
-  top: 0;
-}
 
-.body:before {
-  height: 100%;
-  width: 2px;
-  background-color: var(--margin-line);
-  left: 2em;
-  z-index: 2;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+  }
+
+  &:before {
+    height: 100%;
+    width: 2px;
+    background-color: $margin-line;
+    left: 2em;
+    z-index: 2;
+  }
 }
 
 .text_input {
