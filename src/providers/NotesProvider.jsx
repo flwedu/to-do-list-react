@@ -7,7 +7,7 @@ const NotesContext = createContext()
  * Exposes a provider to NotesContext
  * @param {{children: JSX.Element; storage: LocalStorageService;}} param0
  */
-export default function NotesContextProvider({ children, storage }) {
+export function NotesContextProvider({ children, storage }) {
   const [notes, setNotes] = useState([])
 
   useEffect(() => {
@@ -49,3 +49,5 @@ export default function NotesContextProvider({ children, storage }) {
     </NotesContext.Provider>
   )
 }
+
+export { NotesContext, NotesContextProvider }
