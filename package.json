@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -14,9 +15,13 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.13.0",
+    "@testing-library/react": "^13.2.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "vite": "^2.9.9"
   }
 }
