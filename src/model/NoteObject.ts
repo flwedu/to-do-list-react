@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid"
-
 export default class NoteObject {
   id: string
   text: string
@@ -8,7 +6,7 @@ export default class NoteObject {
 
   constructor(
     text: string,
-    id: string = uuidv4(),
+    id: string,
     createdAt = new Date().getTime(),
     done = false
   ) {
