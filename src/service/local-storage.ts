@@ -1,26 +1,18 @@
-import NoteObject from "../model/NoteObject.js"
+import NoteObject from "../model/NoteObject"
 
 export default class LocalStorageService {
-  /**
-   * @param {string} dbName
-   */
-  constructor(dbName) {
+  dbName: string
+
+  constructor(dbName: string) {
     this.dbName = dbName
   }
 
-  /**
-   * @param {NoteObject[]} notes
-   */
-  save(notes) {
+  save(notes: NoteObject[]) {
     const json = JSON.stringify(notes)
     localStorage.setItem(this.dbName, json)
   }
 
-  /**
-   *
-   * @returns {NoteObject[]}
-   */
-  load() {
+  load(): NoteObject[] {
     const json = localStorage.getItem(this.dbName)
     if (!json) {
       return []

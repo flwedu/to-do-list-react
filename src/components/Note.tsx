@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from "react"
-import useNotesContext from "../hooks/context/use-notes-context.jsx"
-import NoteObject from "../model/NoteObject.js"
-import DeleteButton from "./DeleteButton.jsx"
+import { useEffect, useState } from "react"
+import useNotesContext from "../hooks/context/use-notes-context"
+import NoteObject from "../model/NoteObject"
+import DeleteButton from "./DeleteButton"
 
-/**
- *
- * @param {{note: NoteObject; }} param0
- * @returns
- */
-export function Note({ note }) {
-  const { switchNoteStatus } = useNotesContext()
+export function Note({ note }: { note: NoteObject }) {
+  const { switchNoteStatus } = useNotesContext()!
   const [done, setDone] = useState(note.done)
 
   useEffect(() => {
