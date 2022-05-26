@@ -11,7 +11,7 @@ export default function NotesList() {
 
   return (
     <div className="NotesList">
-      <ul>{notes.map(renderNote)}</ul>
+      <ul>{notes && notes.map(renderNote)}</ul>
     </div>
   )
 }
