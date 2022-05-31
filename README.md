@@ -4,6 +4,12 @@ Uma aplicação de lista de afazeres (acredito que todo estudante de `React` já
 
 As notas adicionadas são persistidas no LocalStorage do navegador.
 
+<div align=center>
+  
+![image](https://user-images.githubusercontent.com/55285816/171072153-827e905a-ef11-4340-8755-f2c06fb09fa4.png)
+  
+</div>
+
 ## Objetos de estudo
 
 - React hooks e Context API
